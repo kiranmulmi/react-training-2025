@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.header,
+.footer {
+  background-color: #272A35;
+  padding: 10px;
+  color: white;
+}
+.header{
+  height: 90px;
+}
+.sidebar {
+  background-color: gainsboro;
+  padding: 10px;
+  width: 20%;
+}
+.main-body {
+  padding: 10px;
+  background: #f0f0f0;
+  width: 80%;
+  height: 80vh;
+}
+.main-wrapper{
+  display: flex;
+}
