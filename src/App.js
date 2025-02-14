@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
-import Users from './pages/Users';
+import Users from './pages/user/Users';
 import Settings from './pages/Settings';
 
 const App = () => {
@@ -17,9 +17,9 @@ const App = () => {
         <Sidebar/>
         <div className="v-col main-body">
           <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/users" element={<Users title="Users"/>} />
+            <Route path="/admin/settings" element={<Settings />} />
           </Routes>
         </div>
       </div> 
