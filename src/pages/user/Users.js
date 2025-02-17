@@ -9,8 +9,12 @@ const Users = (props) => {
     { id: 4, name: 'Jane Smith', age: 28, email: 'xyz@gmail.com'},
     { id: 5, name: 'John Brown', age: 35, email: 'brown@yahoo.com'},
   ];
+  const handleAddUser = () => {
+    console.log('Add User');
+  };
   return (
     <div className="v-col users">
+      <button className="btn" onClick={handleAddUser}>Add User</button>
       <h1>{props.title}</h1>
       <table id="users">
         <thead>
