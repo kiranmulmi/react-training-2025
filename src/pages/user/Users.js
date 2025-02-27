@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router";
 import UserHeader from "./UserHeader";
 import UserRow from "./UserRow";
 
 const Users = (props) => {
+  const navigate = useNavigate();
   const data = [
     { id: 1, name: 'John Doe', age: 25, email: 'john@a.com' },
     { id: 2, name: 'Jane Doe', age: 24, email: 'jane@gmail.com'},
@@ -10,7 +12,7 @@ const Users = (props) => {
     { id: 5, name: 'John Brown', age: 35, email: 'brown@yahoo.com'},
   ];
   const handleAddUser = () => {
-    console.log('Add User');
+    navigate('/admin/user/create');
   };
   return (
     <div className="v-col users">

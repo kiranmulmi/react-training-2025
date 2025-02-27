@@ -4,6 +4,7 @@ const UserAdd = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState(0);
+  const [role, setRole] = useState("");
 
   const [nameError, setNameError] = useState("");
 
@@ -22,6 +23,13 @@ const UserAdd = () => {
       setNameError("Name is required");
       return;
     }
+    const savingData = {
+      name: name,
+      email: email,
+      age: age,
+      role: role
+    };
+    console.log(savingData);
   }
   return (
     <div>
@@ -39,6 +47,16 @@ const UserAdd = () => {
         <div>
           <label>Email</label>
           <input type="email" value={email} onChange={handleEmailChange} />
+        </div>
+        <div>
+          <label>Role</label>
+          <select onChange={(e) => {
+            setRole(e.target.value);
+          }}>
+            <option value="">--Select Role---</option>
+            <option value="admin" selected={role === "admin"}>Admin</option>
+            <option value="user" selected={role === "user"}>User</option>
+          </select>
         </div>
         <button type="button" onClick={handleSubmit}>Save</button>
       </form>
