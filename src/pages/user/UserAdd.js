@@ -1,35 +1,66 @@
 import React, { useState } from "react";
 
 const UserAdd = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [age, setAge] = useState(0);
-  const [role, setRole] = useState("");
-
-  const [nameError, setNameError] = useState("");
+  const [user, setUser] = useState(
+    {
+      name: "",
+      age: 0,
+      email: "",
+      role: ""
+    }
+  );
+  
+  const [error, setError] = useState({
+    name: "",
+    age: "",
+    email: "",
+    role: ""
+  });
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setUser({...user, name: e.target.value});
+    setError({...error, name: ""});
   }
   const handleAgeChange = (e) => {
-    setAge(e.target.value);
+    setUser({...user, age: e.target.value});
+    setError({...error, age: ""});
   } 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setUser({...user, email: e.target.value});
+    setError({...error, email: ""});
   }
 
   const handleSubmit = () => {
-    if (name === "") {
-      setNameError("Name is required");
+    const validationError = {
+      name: "",
+      age: "",
+      email: "",
+      role: ""
+    };
+
+    let isValid = true;
+
+    if (user.name === "") {
+      validationError.name = "Name is required";
+      isValid = false;
+    }
+    if (user.email === "") {
+      validationError.email = "Email is required";
+      isValid = false;
+    }
+    if (user.age === 0) {
+      validationError.age = "Age is required";
+      isValid = false;
+    }
+    if (user.role === "") {
+      validationError.role = "Role is required";
+      isValid = false;
+    }
+    setError(validationError);
+    if (!isValid) {
       return;
     }
-    const savingData = {
-      name: name,
-      email: email,
-      age: age,
-      role: role
-    };
-    console.log(savingData);
+    console.log(user);
   }
   return (
     <div>
@@ -37,26 +68,30 @@ const UserAdd = () => {
       <form>
         <div>
           <label>Name</label>
-          <input type="text" value={name} onChange={handleNameChange} />
-          <div>{nameError}</div>
+          <input type="text" value={user.name} onChange={handleNameChange} />
+          <div className="error">{error.name}</div>
         </div>
         <div>
           <label>Age</label>
-          <input type="number" value={age} onChange={handleAgeChange} />
+          <input type="number" value={user.age} onChange={handleAgeChange} />
+          <div className="error">{error.age}</div>
         </div>
         <div>
           <label>Email</label>
-          <input type="email" value={email} onChange={handleEmailChange} />
+          <input type="email" value={user.email} onChange={handleEmailChange} />
+          <div className="error">{error.email}</div>
         </div>
         <div>
           <label>Role</label>
           <select onChange={(e) => {
-            setRole(e.target.value);
+            setUser({...user, role: e.target.value});
+            setError({...error, role: ""});
           }}>
             <option value="">--Select Role---</option>
-            <option value="admin" selected={role === "admin"}>Admin</option>
-            <option value="user" selected={role === "user"}>User</option>
+            <option value="admin" selected={user.role === "admin"}>Admin</option>
+            <option value="user" selected={user.role === "user"}>User</option>
           </select>
+          <div className="error">{error.role}</div>
         </div>
         <button type="button" onClick={handleSubmit}>Save</button>
       </form>
