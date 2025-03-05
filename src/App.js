@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Users from './pages/user/Users';
 import Settings from './pages/Settings';
 import UserAdd from './pages/user/UserAdd';
+import Login from './pages/auth/Login';
 
 const App = () => {
 
@@ -22,6 +23,8 @@ const App = () => {
             <Route path="/admin/users" element={<Users title="Users"/>} />
             <Route path="/admin/user/create" element={<UserAdd />} />
             <Route path="/admin/settings" element={<Settings />} />
+            <Route path="/login" element={<Login />} />
+
           </Routes>
         </div>
       </div> 
