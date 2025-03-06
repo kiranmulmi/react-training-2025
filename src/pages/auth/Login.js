@@ -16,8 +16,10 @@ const Login = () => {
   const handleButtonClick = () => {
     if (user.username === 'admin' && user.password === 'admin') {
       setMessage('Login successful');
+      localStorage.setItem('is_login', 1);
       navigate('/admin/users');
     } else {
+      localStorage.setItem('is_login', 0);
       setMessage("Incorrect username or password");
     }
   }

@@ -9,26 +9,21 @@ import Users from './pages/user/Users';
 import Settings from './pages/Settings';
 import UserAdd from './pages/user/UserAdd';
 import Login from './pages/auth/Login';
+import Layout from './components/Layout';
 
 const App = () => {
 
   return(
     <BrowserRouter>
-      <Header />
-      <div className="v-row main-wrapper">
-        <Sidebar/>
-        <div className="v-col main-body">
-          <Routes>
-            <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/users" element={<Users title="Users"/>} />
-            <Route path="/admin/user/create" element={<UserAdd />} />
-            <Route path="/admin/settings" element={<Settings />} />
-            <Route path="/login" element={<Login />} />
-
-          </Routes>
-        </div>
-      </div> 
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/users" element={<Users title="Users"/>} />
+          <Route path="/admin/user/create" element={<UserAdd />} />
+          <Route path="/admin/settings" element={<Settings />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </BrowserRouter>
   );
 }
