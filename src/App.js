@@ -9,14 +9,14 @@ import Users from './pages/user/Users';
 import Settings from './pages/Settings';
 import UserAdd from './pages/user/UserAdd';
 import Login from './pages/auth/Login';
-import Layout from './components/Layout';
+import CustomLayout from './components/Layout';
 
 const App = () => {
 
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<CustomLayout />}>
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/users" element={<Users title="Users"/>} />
           <Route path="/admin/user/create" element={<UserAdd />} />
