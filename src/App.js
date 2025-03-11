@@ -1,9 +1,6 @@
 import './assets/css/main.css';
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Users from './pages/user/Users';
 import Settings from './pages/Settings';

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { Space, Table, Tag } from 'antd';
 import UserHeader from "./UserHeader";
 import UserRow from "./UserRow";
 
@@ -18,18 +19,42 @@ const Users = (props) => {
       { id: 5, name: 'John Brown', age: 35, email: 'brown@yahoo.com'},
     ]);
   }, []);
+  const columns = [
+    {
+      title: 'ID',
+      dataIndex: 'id',
+      key: 'id',
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+    },
+  ];
   return (
     <div className="v-col users">
       <button className="btn" onClick={handleAddUser}>Add User</button>
       <h1>{props.title}</h1>
-      <table id="users">
+      <Table columns={columns} dataSource={data} />
+      {/* <table id="users">
         <thead>
           <UserHeader/>
         </thead>
         <tbody>
           {data.map((item) => (<UserRow row={item}/>))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 }
