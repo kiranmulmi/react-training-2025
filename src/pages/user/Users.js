@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { Space, Table, Tag } from 'antd';
 import UserHeader from "./UserHeader";
 import UserRow from "./UserRow";
+import axios from 'axios';
+import { Button } from 'antd';
 
 const Users = (props) => {
   const navigate = useNavigate();
@@ -11,25 +13,28 @@ const Users = (props) => {
     navigate('/admin/user/create');
   };
   useEffect(() => {
-    setData([
-      { id: 1, name: 'John Doe', age: 25, email: 'john@a.com' },
-      { id: 2, name: 'Jane Doe', age: 24, email: 'jane@gmail.com'},
-      { id: 3, name: 'John Smith', age: 30, email: 'smith@gamil.com'},
-      { id: 4, name: 'Jane Smith', age: 28, email: 'xyz@gmail.com'},
-      { id: 5, name: 'John Brown', age: 35, email: 'brown@yahoo.com'},
-    ]);
+    axios.get('http://localhost:4000/users')
+      .then(function (response) {
+        // handle success
+        setData(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
   }, []);
   const columns = [
-    {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
-      render: (text) => <a>{text}</a>,
-    },
+    // {
+    //   title: 'ID',
+    //   dataIndex: 'id',
+    //   key: 'id',
+    //   render: (text) => <a>{text}</a>,
+    // },
     {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
+      render: (_, item) => <NavLink to={`/admin/user/details/${item.id}`}>{item.name}</NavLink>,
     },
     {
       title: 'Age',
@@ -41,20 +46,17 @@ const Users = (props) => {
       dataIndex: 'email',
       key: 'email',
     },
+    {
+      title: 'Role',
+      dataIndex: 'role',
+      key: 'role',
+    },
   ];
   return (
     <div className="v-col users">
-      <button className="btn" onClick={handleAddUser}>Add User</button>
       <h1>{props.title}</h1>
+      <Button type="primary" onClick={handleAddUser}>Add User</Button>
       <Table columns={columns} dataSource={data} />
-      {/* <table id="users">
-        <thead>
-          <UserHeader/>
-        </thead>
-        <tbody>
-          {data.map((item) => (<UserRow row={item}/>))}
-        </tbody>
-      </table> */}
     </div>
   );
 }
