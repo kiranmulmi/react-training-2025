@@ -1,9 +1,60 @@
 {
   "users": [
-    { "id": "0490d044-0f57-42c2-9dce-85ef685e7072", "name": "John Doe", "age": 25, "email": "john@a.com", "role": "admin" },
-    { "id": "83ae2078-4a4f-475e-9577-be2c5025b921", "name": "Jane Doe", "age": 24, "email": "jane@gmail.com", "role": "admin"},
-    { "id": "98492e36-10fc-48d9-9400-647e50bc0342", "name": "John Smith", "age": 30, "email": "smith@gamil.com", "role": "user"},
-    { "id": "ff0218b3-51c7-4374-b4ed-1ccaa83180c2", "name": "Jane Smith", "age": 28, "email": "xyz@gmail.com", "role": "user"},
-    { "id": "fcb21dda-46ff-494d-9c4c-d9ccaaa39a95", "name": "John Brown", "age": 35, "email": "brown@yahoo.com", "role": "user"}
+    {
+      "id": "0490d044-0f57-42c2-9dce-85ef685e7072",
+      "name": "John Doe",
+      "age": 25,
+      "email": "john@a.com",
+      "role": "admin"
+    },
+    {
+      "id": "83ae2078-4a4f-475e-9577-be2c5025b921",
+      "name": "Jane Doe",
+      "age": 24,
+      "email": "jane@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": "98492e36-10fc-48d9-9400-647e50bc0342",
+      "name": "John Smith",
+      "age": 30,
+      "email": "smith@gamil.com",
+      "role": "user"
+    },
+    {
+      "id": "ff0218b3-51c7-4374-b4ed-1ccaa83180c2",
+      "name": "Jane Smith",
+      "age": 28,
+      "email": "xyz@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "fcb21dda-46ff-494d-9c4c-d9ccaaa39a95",
+      "name": "John Brown",
+      "age": 35,
+      "email": "brown@yahoo.com",
+      "role": "user"
+    },
+    {
+      "id": "57735e1c-a639-403b-b1dc-b8f88c5dfe2a",
+      "name": "ram shrestha",
+      "age": 16,
+      "email": "john@a.com",
+      "role": "admin"
+    },
+    {
+      "id": "c6e1",
+      "name": "Ut deserunt in sint ",
+      "age": "41",
+      "email": "segubo@mailinator.com",
+      "role": "user"
+    },
+    {
+      "id": "d4b7",
+      "name": "Labore qui magna neq",
+      "age": "76",
+      "email": "qemof@mailinator.com",
+      "role": "admin"
+    }
   ]
 }

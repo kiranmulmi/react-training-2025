@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import { useParams, useNavigate } from "react-router"
 
 const UserAdd = () => {
+  let params = useParams();
+  const navigate = useNavigate();
   const [user, setUser] = useState(
     {
       name: "",
@@ -61,10 +65,45 @@ const UserAdd = () => {
       return;
     }
     console.log(user);
+    // Create user
+    if(!params.userId) {
+      axios.post(`http://localhost:4000/users`, user)
+      .then(function (response) {
+        // handle success
+        navigate('/admin/users');
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+    } else {
+      axios.patch(`http://localhost:4000/users/${params.userId}`, user)
+      .then(function (response) {
+        // handle success
+        navigate('/admin/users');
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+    }
   }
+
+  useEffect(() => {
+    axios.get(`http://localhost:4000/users/${params.userId}`)
+      .then(function (response) {
+        // handle success
+        setUser(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div>
-      <h1>Add User</h1>
+      <h1>{params.userId ? "Edit": "Add"} User</h1>
       <form>
         <div>
           <label>Name</label>

@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { Space, Table, Tag } from 'antd';
-import UserHeader from "./UserHeader";
-import UserRow from "./UserRow";
 import axios from 'axios';
 import { Button } from 'antd';
 
@@ -50,6 +48,16 @@ const Users = (props) => {
       title: 'Role',
       dataIndex: 'role',
       key: 'role',
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (_, record) => (
+        <Space size="middle">
+          <NavLink to={`/admin/user/edit/${record.id}`}>Edit</NavLink>
+          <button type="button">Delete</button>
+        </Space>
+      ),
     },
   ];
   return (

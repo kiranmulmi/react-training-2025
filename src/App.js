@@ -18,6 +18,7 @@ const App = () => {
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/users" element={<Users title="Users"/>} />
           <Route path="/admin/user/create" element={<UserAdd />} />
+          <Route path="/admin/user/edit/:userId" element={<UserAdd />} />
           <Route path="/admin/user/details/:userId" element={<UserDetails />} />
 
           <Route path="/admin/settings" element={<Settings />} />
