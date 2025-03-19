@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "0490d044-0f57-42c2-9dce-85ef685e7072",
-      "name": "John Doe",
+      "name": "John Doeupdated",
       "age": 25,
       "email": "john@a.com",
       "role": "admin"
@@ -37,7 +37,7 @@
     },
     {
       "id": "57735e1c-a639-403b-b1dc-b8f88c5dfe2a",
-      "name": "ram shrestha",
+      "name": "ram shrestha updated",
       "age": 16,
       "email": "john@a.com",
       "role": "admin"
@@ -55,6 +55,13 @@
       "age": "76",
       "email": "qemof@mailinator.com",
       "role": "admin"
+    },
+    {
+      "id": "6956",
+      "name": "Keefe Woodward",
+      "age": "12",
+      "email": "wodolevujy@mailinator.com",
+      "role": "user"
     }
   ]
 }

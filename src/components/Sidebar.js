@@ -8,8 +8,8 @@ const Sidebar = () => {
   return (
     <div className="v-col sidebar">
       <ul className="sidebar-menu">
-        <li><NavLink to="/admin/dashboard">Dashboard</NavLink></li>
         <li><NavLink to="/admin/users">Users</NavLink></li>
+        <li><NavLink to="/admin/dashboard">Dashboard</NavLink></li>
         <li><NavLink to="/admin/settings">Settings</NavLink></li>
         <li><button type="button" onClick={handleLogoutClick}>Logout</button></li>
       </ul>

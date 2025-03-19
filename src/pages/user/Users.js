@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router";
-import { Space, Table, Tag } from 'antd';
-import axios from 'axios';
-import { Button } from 'antd';
+import { Space, Table, Button, Card } from 'antd';
+import { getUsers } from "../../utils/user.util";
 
 const Users = (props) => {
   const navigate = useNavigate();
@@ -11,23 +10,11 @@ const Users = (props) => {
     navigate('/admin/user/create');
   };
   useEffect(() => {
-    axios.get('http://localhost:4000/users')
-      .then(function (response) {
-        // handle success
-        setData(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    getUsers().then((response) => {
+      setData(response);
+    });
   }, []);
   const columns = [
-    // {
-    //   title: 'ID',
-    //   dataIndex: 'id',
-    //   key: 'id',
-    //   render: (text) => <a>{text}</a>,
-    // },
     {
       title: 'Name',
       dataIndex: 'name',
@@ -62,9 +49,16 @@ const Users = (props) => {
   ];
   return (
     <div className="v-col users">
-      <h1>{props.title}</h1>
-      <Button type="primary" onClick={handleAddUser}>Add User</Button>
-      <Table columns={columns} dataSource={data} />
+      <Card
+        style={{
+          marginTop: 16,
+        }}
+        type="inner"
+        title={<h1>{props.title}</h1>}
+        extra={<Button type="primary" onClick={handleAddUser}>Add User</Button>}
+      >
+        <Table columns={columns} dataSource={data} />
+      </Card>
     </div>
   );
 }

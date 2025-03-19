@@ -41,15 +41,15 @@ const CustomLayout = () => {
             items={[
               {
                 key: '1',
-                icon: <UserOutlined />,
-                label: 'Users',
-                onClick: () => navigate('/admin/users'),
-              },
-              {
-                key: '2',
                 icon: <VideoCameraOutlined />,
                 label: 'Dashboard',
                 onClick: () => navigate('/admin/dashboard'),
+              },
+              {
+                key: '2',
+                icon: <UserOutlined />,
+                label: 'Users',
+                onClick: () => navigate('/admin/users'),
               },
               {
                 key: '3',
