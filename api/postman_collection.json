@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "922c11de-7f3b-4317-b0b6-99c963afa7f9",
+		"name": "Virinchi React",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10187762"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/users/98492e36-10fc-48d9-9400-647e50bc0342",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"98492e36-10fc-48d9-9400-647e50bc0342"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"id\": \"57735e1c-a639-403b-b1dc-b8f88c5dfe2a\", \n    \"name\": \"xyz abc\", \n    \"age\": 16, \n    \"email\": \"xys@a.com\", \n    \"role\": \"admin\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"name\": \"xyz abc updated\", \n    \"age\": 16, \n    \"email\": \"john@a.com\", \n    \"role\": \"admin\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/57735e1c-a639-403b-b1dc-b8f88c5dfe2a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"57735e1c-a639-403b-b1dc-b8f88c5dfe2a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
