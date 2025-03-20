@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router";
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Card } from 'antd';
+import { checkLogin } from '../../utils/user.util';
+import { UserContext } from '../../context/user.context';
 
 const Login = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
-
+  const { _setUser } = useContext(UserContext);
   const onFinish = (values) => {
     console.log('Success:', values);
-    if (values.username === 'admin' && values.password === 'admin') {
-      setMessage('Login successful');
-      localStorage.setItem('is_login', 1);
-      navigate('/admin/users');
-    } else {
-      localStorage.setItem('is_login', 0);
-      setMessage("Incorrect username or password");
-    }
+    checkLogin(values.username, values.password).then((data) => {
+      if (data === null) {
+        setMessage('Incorrect username or password');
+      } else {
+        setMessage('Login successful');
+        _setUser(data);
+        localStorage.setItem('is_login', 1);
+        localStorage.setItem('user', JSON.stringify(data));
+        navigate('/admin/users');
+      }
+    });
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -24,6 +29,16 @@ const Login = () => {
 
   return (
     <div>
+      <Card
+        style={{
+          marginTop: 16,
+          width: 500,
+          margin: '100px auto',
+        }}
+        type="inner"
+        title={<h1>Admin Login</h1>}
+      >
+        {message && <div>{message}</div>}
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -52,13 +67,11 @@ const Login = () => {
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
-            Submit
+            Login
           </Button>
         </Form.Item>
       </Form>
-
-      {/* Show login message */}
-      {message && <div>{message}</div>}
+      </Card>
     </div>
   );
 };

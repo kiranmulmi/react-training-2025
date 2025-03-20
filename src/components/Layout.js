@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Outlet, useNavigate } from "react-router";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
+  SettingOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+  DashboardOutlined,
+  LogoutOutlined
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
+import { UserContext } from '../context/user.context';
 
 const { Header, Sider, Content } = Layout;
 
 const CustomLayout = () => {
+  const { _user } = useContext(UserContext);
   const navigate = useNavigate();
   useEffect(() => {
     const isLogin  = localStorage.getItem('is_login');
@@ -31,17 +34,19 @@ const CustomLayout = () => {
 
   return (
     <>
-      <Layout>
+      <Layout style={{ minHeight: '100vh' }}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
-          <div className="demo-logo-vertical" />
+          <div className="demo-logo-vertical" >
+            <img src="https://www.virinchicollege.edu.np/storage/site/941680252040.png" alt="logo" style={{height: 90, padding: 25}} />
+          </div>
+          <div style={{color: "#ffffff", padding: 30}}>{_user?.email}</div>
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={['1']}
             items={[
               {
                 key: '1',
-                icon: <VideoCameraOutlined />,
+                icon: <DashboardOutlined />,
                 label: 'Dashboard',
                 onClick: () => navigate('/admin/dashboard'),
               },
@@ -53,13 +58,13 @@ const CustomLayout = () => {
               },
               {
                 key: '3',
-                icon: <UploadOutlined />,
+                icon: <SettingOutlined />,
                 label: 'Settings',
                 onClick: () => navigate('/admin/settings'),
               },
               {
                 key: '4',
-                icon: <UploadOutlined />,
+                icon: <LogoutOutlined />,
                 label: 'Logout',
                 onClick: () => handleLogoutClick(),
               },
