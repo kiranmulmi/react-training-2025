@@ -25,51 +25,11 @@
       "password": "123456"
     },
     {
-      "id": "ff0218b3-51c7-4374-b4ed-1ccaa83180c2",
-      "name": "Jane Smith",
-      "age": 28,
-      "email": "xyz@gmail.com",
-      "role": "user",
-      "password": "123456"
-    },
-    {
-      "id": "fcb21dda-46ff-494d-9c4c-d9ccaaa39a95",
-      "name": "John Brown",
-      "age": 35,
-      "email": "brown@yahoo.com",
-      "role": "user",
-      "password": "123456"
-    },
-    {
       "id": "57735e1c-a639-403b-b1dc-b8f88c5dfe2a",
       "name": "ram shrestha updated",
       "age": 16,
       "email": "john@a.com",
       "role": "admin",
-      "password": "123456"
-    },
-    {
-      "id": "c6e1",
-      "name": "Ut deserunt in sint ",
-      "age": "41",
-      "email": "segubo@mailinator.com",
-      "role": "user",
-      "password": "123456"
-    },
-    {
-      "id": "d4b7",
-      "name": "Labore qui magna neq",
-      "age": "76",
-      "email": "qemof@mailinator.com",
-      "role": "admin",
-      "password": "123456"
-    },
-    {
-      "id": "6956",
-      "name": "Keefe Woodward",
-      "age": "12",
-      "email": "wodolevujy@mailinator.com",
-      "role": "user",
       "password": "123456"
     }
   ]

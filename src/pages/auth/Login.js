@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { Button, Form, Input, Card } from 'antd';
 import { checkLogin } from '../../utils/user.util';
 import { UserContext } from '../../context/user.context';
+import { showErrorToast, showSuccessToast } from '../../utils/toastify.util';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,9 +13,9 @@ const Login = () => {
     console.log('Success:', values);
     checkLogin(values.username, values.password).then((data) => {
       if (data === null) {
-        setMessage('Incorrect username or password');
+        showErrorToast('Incorrect username or password');
       } else {
-        setMessage('Login successful');
+        showSuccessToast('Login successful');
         _setUser(data);
         localStorage.setItem('is_login', 1);
         localStorage.setItem('user', JSON.stringify(data));

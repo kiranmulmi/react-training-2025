@@ -10,6 +10,7 @@ import {
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
 import { UserContext } from '../context/user.context';
+import { showSuccessToast } from '../utils/toastify.util';
 
 const { Header, Sider, Content } = Layout;
 
@@ -19,13 +20,14 @@ const CustomLayout = () => {
   useEffect(() => {
     const isLogin  = localStorage.getItem('is_login');
     if (isLogin !== '1') {
-      navigate('/login');
+      navigate('/admin/login');
     }
   }
   , []);
   const handleLogoutClick = () => {
     localStorage.setItem('is_login', 0);
-    navigate('/login');
+    showSuccessToast('Logout successful');
+    navigate('/admin/login');
   }
   const [collapsed, setCollapsed] = useState(false);
   const {

@@ -25,6 +25,10 @@ export const updateUser = async (id, data) => {
   await axios.patch(`http://localhost:4000/users/${id}`, data)
 }
 
+export const deleteUser = async (id) => {
+  await axios.delete(`http://localhost:4000/users/${id}`)
+}
+
 export const checkLogin = async (email, password) => {
   const response = await axios.get(`http://localhost:4000/users/?email=${email}&password=${password}`);
   if (response.data.length === 0) {
